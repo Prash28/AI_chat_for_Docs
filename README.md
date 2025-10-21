@@ -6,6 +6,9 @@
 
 ---
 
+# 👨‍💻 Some sample outputs
+
+---
 ## ⚡ Features
 
 - Query `.md`, `.txt`, `.pdf`, and `.json` documents.
@@ -85,16 +88,13 @@ This creates or refreshes your Chroma database with the current documents.
 **Run:**
 
 ```bash
-python queryDatabase.py "Who is Alice?"
+python queryDatabase.py "Did Alice consume poison?"
 ```
 
 Example output:
 
-```
-Model Response:
-Alice is the main character in the story...
-Sources: ['data/Alice in Wonderland.md']
-```
+<img width="789" height="142" alt="image" src="https://github.com/user-attachments/assets/3324d9ee-a625-4037-9e22-0b448aa39afd" />
+
 
 ---
 
