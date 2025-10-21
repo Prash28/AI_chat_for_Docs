@@ -1,9 +1,6 @@
-````markdown
-# 🧠 AI Chat for Documents
-
-![Python](https://img.shields.io/badge/python-3.11-blue)
-![License: MIT](https://img.shields.io/badge/License-MIT-green)
-![Hugging Face](https://img.shields.io/badge/Hugging%20Face-API-blueviolet)
+# AI Chat for Documents
+````
+# 🧠 Overview
 
 **AI Chat for Documents** is a **Retrieval-Augmented Generation (RAG)** application that allows you to query your documents and get AI-generated answers. It uses **Hugging Face LLaMA models** for online inference, **Chroma** for vector storage, and **Hugging Face embeddings** for semantic search.
 
