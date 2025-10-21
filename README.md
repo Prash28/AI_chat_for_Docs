@@ -5,10 +5,6 @@
 **AI Chat for Documents** is a **Retrieval-Augmented Generation (RAG)** application that allows you to query your documents and get AI-generated answers. It uses **Hugging Face LLaMA models** for online inference, **Chroma** for vector storage, and **Hugging Face embeddings** for semantic search.
 
 ---
-
-# 👨‍💻 Some sample outputs
-
----
 ## ⚡ Features
 
 - Query `.md`, `.txt`, `.pdf`, and `.json` documents.
