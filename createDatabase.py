@@ -1,3 +1,4 @@
+import time
 from langchain_community.document_loaders import DirectoryLoader
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -42,13 +43,20 @@ print("Chunks created")
 # print(chunks[4])
 
 def save_to_chroma(chunks :list[Document]):
-    if os.path.exists(CHROMA_PATH):
-        shutil.rmtree(CHROMA_PATH)
-    
-    hfEmbedding = HuggingFaceEmbeddings(model_name = 'sentence-transformers/all-MiniLM-L6-v2')
+    try:                    #Adding try block to avoid any errors due to file permission issue
+        if os.path.exists(CHROMA_PATH):
+            shutil.rmtree(CHROMA_PATH)
+            time.sleep(0.5)
+    except PermissionError:         #If files are locked, wait and retry
+        print("⚠️ Chroma DB files are locked. Retrying in 2 seconds...")
+        time.sleep(2)
+        shutil.rmtree(CHROMA_PATH, ignore_errors=True)
+
+    hfEmbedding = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
     db = Chroma.from_documents(
         documents=chunks, embedding=hfEmbedding, persist_directory=CHROMA_PATH
     )
+    db.persist()
     
     print(f"Saved {len(chunks)} chunks to {CHROMA_PATH}.")
 
